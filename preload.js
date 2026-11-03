@@ -2,7 +2,7 @@
 const { contextBridge, ipcRenderer } = require('electron');
 
 const call = (ch) => (...a) => ipcRenderer.invoke(ch, ...a);
-const EVENTS = new Set(['hub:progress', 'hub:library', 'hub:toast', 'hub:checking']);
+const EVENTS = new Set(['hub:progress', 'hub:library', 'hub:toast', 'hub:checking', 'hub:watches', 'hub:watching']);
 
 contextBridge.exposeInMainWorld('hub', {
   settingsGet: call('settings:get'),
@@ -24,6 +24,11 @@ contextBridge.exposeInMainWorld('hub', {
   libRun: call('library:run'),
   libPreview: call('library:preview'),
   libTerminal: call('library:terminal'),
+  watchList: call('watch:list'),
+  watchAdd: call('watch:add'),
+  watchRemove: call('watch:remove'),
+  watchCheck: call('watch:check'),
+  watchAck: call('watch:ack'),
   on(channel, cb) {
     if (!EVENTS.has(channel)) return () => {};
     const fn = (_e, p) => cb(p);

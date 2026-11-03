@@ -1,6 +1,6 @@
 {
   "name": "priority-hub",
-  "version": "2.0.0",
+  "version": "1.0.0",
   "description": "Hub de descargas para Linux: pega cualquier enlace, detecta el descargable, elige dónde guardarlo y se mantiene actualizado.",
   "main": "main.js",
   "author": "rike",
