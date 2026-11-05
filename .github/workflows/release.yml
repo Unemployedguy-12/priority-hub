@@ -1,11 +1,11 @@
-name: Release AppImage
+name: Release
 on:
   push:
     tags: ['v*']
 permissions:
   contents: write
 jobs:
-  build:
+  linux:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -17,3 +17,17 @@ jobs:
       - uses: softprops/action-gh-release@v2
         with:
           files: dist/*.AppImage
+  windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - run: npm install --no-audit --no-fund
+      - run: npm test
+      - run: npx electron-builder --win nsis portable --publish never
+      - uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            dist/*Setup*.exe
+            dist/*portable*.exe
