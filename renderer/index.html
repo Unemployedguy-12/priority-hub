@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: file:; style-src 'self' 'unsafe-inline'; font-src 'self'; script-src 'self'; connect-src 'none'">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Priority Hub</title>
+<link rel="stylesheet" href="../assets/phosphor/regular/style.css">
+<link rel="stylesheet" href="../assets/phosphor/fill/style.css">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="bg" aria-hidden="true"><i class="glow g1"></i><i class="glow g2"></i><div class="grid"></div><div class="grain"></div></div>
+
+<div class="app">
+  <aside class="rail">
+    <div class="brand">
+      <div class="mark" aria-hidden="true"><i></i><i></i><i></i></div>
+      <div class="wordmark"><b>Priority</b><span>Hub</span></div>
+    </div>
+    <nav class="nav" aria-label="Secciones">
+      <i class="nav-ind" aria-hidden="true"></i>
+      <button class="nav-btn active" data-view="discover"><i class="ph ph-compass"></i><span>Descubrir</span></button>
+      <button class="nav-btn" data-view="library"><i class="ph ph-stack"></i><span>Biblioteca</span><em class="badge" id="libBadge" hidden>0</em></button>
+      <button class="nav-btn" data-view="settings"><i class="ph ph-sliders-horizontal"></i><span>Ajustes</span></button>
+    </nav>
+    <div class="rail-foot">
+      <button class="icon-btn" id="muteBtn" aria-label="Activar o silenciar sonidos" title="Sonidos"><i class="ph ph-speaker-high"></i></button>
+      <span class="ver mono" id="verTag">v1.0</span>
+    </div>
+  </aside>
+
+  <main>
+    <section class="view active" id="view-discover" aria-labelledby="heroTitle">
+      <div class="hero">
+        <p class="eyebrow mono">/ descargas para linux</p>
+        <h1 id="heroTitle"><span class="w"><span>Pega</span></span> <span class="w"><span>un</span></span> <span class="w"><span class="amber">enlace.</span></span></h1>
+        <p class="lede">Repo, página o archivo. Yo detecto el descargable, tú decides dónde cae.</p>
+      </div>
+
+      <div class="console" id="console">
+        <i class="ph ph-link-simple lead-ico" aria-hidden="true"></i>
+        <input id="urlInput" type="text" spellcheck="false" autocomplete="off" placeholder="github.com/usuario/repo · cualquier página · enlace a .AppImage / .sh" aria-label="Enlace a analizar">
+        <button class="icon-btn" id="pasteBtn" aria-label="Pegar del portapapeles" title="Pegar"><i class="ph ph-clipboard-text"></i></button>
+        <button class="go" id="goBtn" aria-label="Analizar enlace"><span>Analizar</span><i class="ph ph-arrow-right"></i></button>
+      </div>
+
+      <ul class="sources" aria-label="Sitios compatibles">
+        <li><i class="ph ph-github-logo"></i>GitHub</li>
+        <li><i class="ph ph-gitlab-logo"></i>GitLab</li>
+        <li><i class="ph ph-git-branch"></i>Codeberg · Gitea · Forgejo</li>
+        <li><i class="ph ph-git-diff"></i>Bitbucket</li>
+        <li><i class="ph ph-cloud-arrow-down"></i>SourceForge</li>
+        <li><i class="ph ph-file-arrow-down"></i>Enlace directo</li>
+        <li><i class="ph ph-globe-hemisphere-west"></i>Cualquier página</li>
+      </ul>
+
+      <div id="results" aria-live="polite"></div>
+    </section>
+
+    <section class="view" id="view-library" aria-labelledby="libTitle">
+      <header class="view-head">
+        <div><p class="eyebrow mono">/ instalado</p><h2 id="libTitle">Biblioteca</h2></div>
+        <div class="head-actions">
+          <button class="btn ghost" id="checkBtn"><i class="ph ph-arrows-clockwise"></i><span>Buscar actualizaciones</span></button>
+          <button class="btn amber" id="updateAllBtn" hidden><i class="ph ph-arrow-circle-up"></i><span>Actualizar todo</span></button>
+        </div>
+      </header>
+      <div id="watchBox"></div>
+      <div class="lib-grid" id="libGrid"></div>
+    </section>
+
+    <section class="view" id="view-settings" aria-labelledby="setTitle">
+      <header class="view-head"><div><p class="eyebrow mono">/ preferencias</p><h2 id="setTitle">Ajustes</h2></div></header>
+      <div id="settingsBody"></div>
+    </section>
+  </main>
+</div>
+
+<div id="dock" aria-live="polite"></div>
+<div id="toasts" aria-live="polite"></div>
+<canvas id="fx" aria-hidden="true"></canvas>
+
+<dialog id="sheet" aria-labelledby="sheetTitle"></dialog>
+<dialog id="confirmDlg" aria-labelledby="confTitle"></dialog>
+
+<script src="sfx.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
