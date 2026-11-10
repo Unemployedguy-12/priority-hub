@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 360" width="1280" height="360" role="img" aria-label="Priority Hub - paste any link, get the right download">
+  <defs>
+    <radialGradient id="g1" cx="22%" cy="0%" r="70%"><stop offset="0" stop-color="#ff961e" stop-opacity=".45"/><stop offset="1" stop-color="#ff961e" stop-opacity="0"/></radialGradient>
+    <radialGradient id="g2" cx="100%" cy="100%" r="60%"><stop offset="0" stop-color="#ffbe3c" stop-opacity=".22"/><stop offset="1" stop-color="#ffbe3c" stop-opacity="0"/></radialGradient>
+    <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse"><path d="M48 0H0V48" fill="none" stroke="#ffffff" stroke-opacity=".05"/></pattern>
+  </defs>
+  <rect width="1280" height="360" fill="#0b0c0d"/>
+  <rect width="1280" height="360" fill="url(#grid)"/>
+  <rect width="1280" height="360" fill="url(#g1)"/>
+  <rect width="1280" height="360" fill="url(#g2)"/>
+  <g transform="translate(96 84)">
+    <rect width="192" height="192" rx="46" fill="#0e0f10" stroke="#ffffff" stroke-opacity=".14" stroke-width="2"/>
+    <rect x="36" y="56" width="120" height="22" rx="11" fill="#ffb224"/>
+    <rect x="36" y="90" width="84" height="22" rx="11" fill="#ffb224" fill-opacity=".75"/>
+    <rect x="36" y="124" width="48" height="22" rx="11" fill="#ffb224" fill-opacity=".5"/>
+  </g>
+  <g font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">
+    <text x="336" y="170" font-size="84" font-weight="700" fill="#efeae0" letter-spacing="-2">Priority <tspan fill="#ffb224">Hub</tspan></text>
+    <text x="340" y="222" font-size="30" fill="#aaa598">Paste any link. Get the right download.</text>
+    <text x="340" y="268" font-size="20" fill="#8a867c" letter-spacing="1">LINUX  ·  WINDOWS  ·  ANDROID</text>
+  </g>
+</svg>
